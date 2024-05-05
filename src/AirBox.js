@@ -1,87 +1,92 @@
-import {Grid} from "@mui/material";
-import Box from "@mui/material/Box";
 import * as React from "react";
-import styled, {css, keyframes} from "styled-components";
+import styled from "styled-components";
+import theme from "./theme";
+import Box from "@mui/material/Box";
+import {useEffect, useRef} from "react";
+import anime from "animejs";
 
-export function AirBox({count}) {
+export function AirBox({ count }) {
     return (
-        <Wrapper>
-            <Marquee>
-                <MarqueeGroup>
-        <Grid container spacing={{ xs: 2, md: 3 }}>
-            {Array.from({ length: count }, (_, index) => (
-                <Grid item key={index} xs={12} sm={6} md={4}>
-                    <Box
-                        sx={{
-                            marginTop: '10px',
-                            marginBottom: '10px',
-                            width: 300,
-                            height: 200,
-                            borderRadius: 10,
-                            backgroundImage: 'url(https://source.unsplash.com/random?airplane)',
-                            backgroundRepeat: 'no-repeat',
-                            backgroundSize: 'cover',
-                            backgroundPosition: 'center',
-                        }}
-                    >
-                    </Box>
-                </Grid>
-            ))}
-        </Grid>
-                </MarqueeGroup>
-            </Marquee>
-        </Wrapper>
+        <Box
+            sx={{
+                bgcolor: 'primary.main',
+                borderRadius: 10,
+            }}
+        >
+        <Marquee>
+                {Array.from({ length: count }, (_, index) => (
+                    <div key={index}><MovingImages /></div>
+                ))}
+        </Marquee>
+        </Box>
     );
 }
 
-const Wrapper = styled.div`
-  width: 100%;
-  height: fit-content;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-`;
-
 const Marquee = styled.div`
-  display: flex;
-  width: 1200px;
-  overflow: hidden;
-  user-select: none;
-
-  mask-image: linear-gradient(
-    to right,
-    hsl(0 0% 0% / 0),
-    hsl(0 0% 0% / 1) 10%,
-    hsl(0 0% 0% / 1) 90%,
-    hsl(0 0% 0% / 0)
-  );
-`;
-
-const scrollX = keyframes`
-    0% {
-        transform: translateX(0%);
-    }
-    100% {
-        transform: translateX(-100%);
-    }
-`;
-
-const common = css`
-  flex-shrink: 0;
-  display: flex;
-  align-items: center;
-  justify-content: space-around;
-  white-space: nowrap;
-  width: 100%;
-  animation: ${scrollX} 30s linear infinite;
-`;
-
-const MarqueeGroup = styled.div`
-  ${common}
-  animation-direction: reverse;
-  animation-delay: -3s;
     display: flex;
-    overflow: hidden
+    overflow: hidden;
+    user-select: none;
+    background-color: ${() => theme.palette.secondary.main};
+
+    mask-image: linear-gradient(
+            to right,
+            hsla(0, 0%, 0%, 0),
+            hsla(0, 0%, 0%, 1) 10%,
+            hsla(0, 0%, 0%, 1) 90%,
+            hsla(0, 0%, 0%, 0)
+    );
 `;
+
+const getRandomImageUrl = () => {
+    const randomParam = Math.random();
+    return `https://source.unsplash.com/random?vacation&${randomParam}`;
+};
+
+const MovingImages = () => {
+    const boxRef = useRef(null);
+    useEffect(() => {
+        anime({
+            targets: boxRef.current,
+            translateX: -window.innerWidth,
+            duration: 50000,
+            easing: 'linear',
+            loop: true,
+
+        });
+    }, []);
+
+    return (
+        <Box
+            ref={boxRef}
+            sx={{
+                marginTop: '20px',
+                marginBottom: '20px',
+                marginRight: '10px',
+                marginLeft: '10px',
+                width: 300,
+                height: 200,
+                borderRadius: 10,
+                backgroundImage: `url(${getRandomImageUrl()})`,
+                backgroundRepeat: 'no-repeat',
+                backgroundSize: 'cover',
+                backgroundPosition: 'center',
+                position: 'relative',
+                '&:hover': {
+                    '&::after': {
+                        content: '""',
+                        position: 'absolute',
+                        top: 0,
+                        left: 0,
+                        right: 0,
+                        bottom: 0,
+                        borderRadius: 10,
+                        backgroundColor: 'rgba(255, 255, 255, 0.5)', // Цвет и полупрозрачность
+                    },
+                },
+            }}
+        >
+        </Box>
+    );
+};
+
+export default Marquee;
