@@ -9,9 +9,7 @@ import * as React from "react";
                 display: 'flex',
                 flexDirection: 'column',
                 alignItems: 'center',
-                '& > *': {
-                    m: 1,
-                },
+                margin: 2,
             }}
         >
             <ButtonGroup variant="contained" color="main" >

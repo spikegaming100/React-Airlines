@@ -1,13 +1,13 @@
 import * as React from "react";
 import styled from "styled-components";
-import theme, {GradientColor} from "./theme";
+import theme, {GradientColor} from "../SubElements/theme";
 import Box from "@mui/material/Box";
 import {useEffect, useRef} from "react";
 import anime from "animejs";
 
 export function AirBox({ count }) {
     return (
-        <Box
+        <Box className="custom-class"
             sx={{
                 background: GradientColor,
                 borderRadius: 10,

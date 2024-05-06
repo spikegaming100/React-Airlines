@@ -1,8 +1,8 @@
 import Box from "@mui/material/Box";
 import * as React from "react";
-import theme, {GradientColor} from "./theme";
+import theme, {GradientColor} from "../SubElements/theme";
 import {ThemeProvider} from "@mui/material/styles";
-import  './BoxStyle.css'
+import  '../SubElements/BoxStyle.css'
 
 
 
