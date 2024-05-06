@@ -10,6 +10,7 @@ import Box from "@mui/material/Box";
 import About from "./About";
 import Support from "./Support";
 import {Content} from "./Content";
+import {Header} from "./Header";
 
 export default function App() {
     return (
@@ -27,13 +28,10 @@ class Main extends React.Component {
     render() {
         return (
             <Container maxWidth={"lg"}>
-                <Box sx={{ borderRadius: 10}}>
-                    <Typography variant="h2" align="center">Авиатуры на любой вкус</Typography>
-                </Box>
-                <Menu history={this.props.history} />
+                <Header />
                 <AirBox count={25} />
+                <Menu history={this.props.history} />
                 <Content />
-
                 <Copyright history={this.props.history}/>
             </Container>
         );

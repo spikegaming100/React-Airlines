@@ -1,15 +1,16 @@
 import * as React from "react";
 import styled from "styled-components";
-import theme from "./theme";
+import theme, {GradientColor} from "./theme";
 import Box from "@mui/material/Box";
 import {useEffect, useRef} from "react";
 import anime from "animejs";
+import {useTheme} from "@mui/material";
 
 export function AirBox({ count }) {
     return (
         <Box
             sx={{
-                bgcolor: 'primary.main',
+                background: GradientColor,
                 borderRadius: 10,
             }}
         >
@@ -26,7 +27,7 @@ const Marquee = styled.div`
     display: flex;
     overflow: hidden;
     user-select: none;
-    background-color: ${() => theme.palette.secondary.main};
+    background-color: ${theme.palette.primary};
 
     mask-image: linear-gradient(
             to right,
@@ -80,7 +81,7 @@ const MovingImages = () => {
                         right: 0,
                         bottom: 0,
                         borderRadius: 10,
-                        backgroundColor: 'rgba(255, 255, 255, 0.5)', // Цвет и полупрозрачность
+                        backgroundColor: 'rgba(255, 255, 255, 0.5)',
                     },
                 },
             }}

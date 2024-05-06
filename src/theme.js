@@ -1,21 +1,22 @@
-import { red } from '@mui/material/colors';
-import {createTheme} from "@mui/material";
+import {alpha, createTheme, getContrastRatio} from "@mui/material";
+
+const mainBase = '#252fff';
+const mainMain = alpha(mainBase, 0.2);
+
+export const GradientColor = `linear-gradient(45deg, ${mainBase} 0%, ${mainMain} 100%);`;
 
 const theme = createTheme({
-
   palette: {
-    primary: {
-      main: '#25beff',
-      light: '#c3eeff',
-    },
-    secondary: {
-      main: '#2592ff',
-    },
-    error: {
-      main: red.A400,
+    main: {
+      primary: mainBase,
+      dark: alpha(mainBase, 0.9),
+      light: alpha(mainBase, 0.5),
+      contrastText: getContrastRatio(mainMain, '#fff') > 4.5 ? '#111111' : '#111',
+      background: {
+        default: mainMain,
+      },
     },
   },
 });
-
 
 export default theme;

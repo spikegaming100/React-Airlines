@@ -14,7 +14,7 @@ import * as React from "react";
                 },
             }}
         >
-            <ButtonGroup variant="contained" aria-label="Basic button group" >
+            <ButtonGroup variant="contained" color="main" >
                 <Button onClick={()=> history.push("/flights")}>Посмотреть туры</Button>
                 <Button onClick={()=> history.push("/about")}>О нас</Button>
                 <Button onClick={()=> history.push("/support")}>Поддержка</Button>

@@ -1,10 +1,22 @@
 import Typography from "@mui/material/Typography";
 import Link from "@mui/material/Link";
 import * as React from "react";
+import Box from "@mui/material/Box";
 
 export function Copyright({history}) {
     return (
-        <Typography variant="body2" color="text.secondary" align="center">
+        <Box sx={{
+            display: 'flex',
+            flexDirection: 'column',
+            '& > *': {
+                m: 2,
+            },
+            marginTop: '20px',
+            marginBottom: '20px',
+            marginRight: '10px',
+            marginLeft: '10px',
+        }}>
+        <Typography variant="body2" color="text.secondary" align="right">
             {'Copyright © '}
             <Link color="inherit" onClick={()=> history.push("/about")}>
                 React-Airlines
@@ -12,5 +24,6 @@ export function Copyright({history}) {
             {new Date().getFullYear()}
             {'.'}
         </Typography>
+        </Box>
     );
 }
