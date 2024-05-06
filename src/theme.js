@@ -1,6 +1,6 @@
 import {alpha, createTheme, getContrastRatio} from "@mui/material";
 
-const mainBase = '#252fff';
+const mainBase = '#ffc7c7';
 const mainMain = alpha(mainBase, 0.2);
 
 export const GradientColor = `linear-gradient(45deg, ${mainBase} 0%, ${mainMain} 100%);`;
@@ -14,6 +14,17 @@ const theme = createTheme({
       contrastText: getContrastRatio(mainMain, '#fff') > 4.5 ? '#111111' : '#111',
       background: {
         default: mainMain,
+      },
+    },
+  },
+  components: {
+    MuiBox: {
+      styleOverrides: {
+        root: ({ theme }) =>
+            theme.unstable_sx({
+          borderRadius: 10,
+          boxShadow: 6,
+            }),
       },
     },
   },

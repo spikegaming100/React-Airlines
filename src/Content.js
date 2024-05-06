@@ -10,7 +10,6 @@ export function Content() {
                 width: window.Width,
                 height: 1000,
                 background: GradientColor,
-                borderRadius: 10,
                 display: 'flex',
                 flexDirection: 'column',
                 '& > *': {

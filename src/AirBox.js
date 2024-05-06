@@ -4,7 +4,6 @@ import theme, {GradientColor} from "./theme";
 import Box from "@mui/material/Box";
 import {useEffect, useRef} from "react";
 import anime from "animejs";
-import {useTheme} from "@mui/material";
 
 export function AirBox({ count }) {
     return (
@@ -67,6 +66,7 @@ const MovingImages = () => {
                 width: 300,
                 height: 200,
                 borderRadius: 10,
+                boxShadow: 6,
                 backgroundImage: `url(${getRandomImageUrl()})`,
                 backgroundRepeat: 'no-repeat',
                 backgroundSize: 'cover',
@@ -89,5 +89,3 @@ const MovingImages = () => {
         </Box>
     );
 };
-
-export default Marquee;
