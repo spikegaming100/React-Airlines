@@ -9,7 +9,7 @@ import  './BoxStyle.css'
 export function Content() {
     return (
         <ThemeProvider theme={theme}>
-        <Box
+        <Box className="custom-class"
             sx={{
                 width: window.Width,
                 height: 1000,

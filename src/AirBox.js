@@ -56,7 +56,7 @@ const MovingImages = () => {
     }, []);
 
     return (
-        <Box
+        <Box className="custom-class"
             ref={boxRef}
             sx={{
                 width: 300,

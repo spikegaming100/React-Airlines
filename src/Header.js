@@ -8,7 +8,7 @@ const headertext = "Авиатуры на любой вкус";
 
 export function Header() {
     return (
-        <Box sx={{
+        <Box className="custom-class" sx={{
             background: GradientColor,
         }}>
             <Typography variant="h3" align="center" >{headertext}</Typography>
