@@ -59,14 +59,8 @@ const MovingImages = () => {
         <Box
             ref={boxRef}
             sx={{
-                marginTop: '20px',
-                marginBottom: '20px',
-                marginRight: '10px',
-                marginLeft: '10px',
                 width: 300,
                 height: 200,
-                borderRadius: 10,
-                boxShadow: 6,
                 backgroundImage: `url(${getRandomImageUrl()})`,
                 backgroundRepeat: 'no-repeat',
                 backgroundSize: 'cover',

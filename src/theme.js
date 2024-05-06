@@ -17,17 +17,6 @@ const theme = createTheme({
       },
     },
   },
-  components: {
-    MuiBox: {
-      styleOverrides: {
-        root: ({ theme }) =>
-            theme.unstable_sx({
-          borderRadius: 10,
-          boxShadow: 6,
-            }),
-      },
-    },
-  },
 });
 
 export default theme;

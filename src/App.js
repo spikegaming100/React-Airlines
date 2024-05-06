@@ -1,12 +1,10 @@
 import * as React from 'react';
 import Container from '@mui/material/Container';
-import Typography from '@mui/material/Typography';
 import {BrowserRouter as Router, Switch} from 'react-router-dom';
 import Route from 'react-router-dom/Route'
 import {AirBox} from "./AirBox";
 import {Copyright} from "./Copyright";
 import {Menu} from "./Menu";
-import Box from "@mui/material/Box";
 import About from "./About";
 import Support from "./Support";
 import {Content} from "./Content";
