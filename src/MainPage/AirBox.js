@@ -59,8 +59,8 @@ const MovingImages = () => {
         <Box className="custom-class"
             ref={boxRef}
             sx={{
-                width: 300,
-                height: 200,
+                width: 250,
+                height: 150,
                 backgroundImage: `url(${getRandomImageUrl()})`,
                 backgroundRepeat: 'no-repeat',
                 backgroundSize: 'cover',

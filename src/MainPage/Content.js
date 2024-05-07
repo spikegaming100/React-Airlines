@@ -1,22 +1,20 @@
 import Box from "@mui/material/Box";
 import * as React from "react";
-import theme, {GradientColor} from "../SubElements/theme";
-import {ThemeProvider} from "@mui/material/styles";
+import {GradientColor} from "../SubElements/theme";
 import  '../SubElements/BoxStyle.css'
+import Grid from "./Table";
 
 
 
 export function Content() {
     return (
-        <ThemeProvider theme={theme}>
-        <Box className="custom-class"
+        <Box className="custom-class" paddingTop={1} paddingBottom={4}
             sx={{
                 width: window.Width,
                 height: 1000,
                 background: GradientColor,
             }}>
+            <Grid></Grid>
         </Box>
-
-        </ThemeProvider>
     );
 }
