@@ -7,7 +7,7 @@ import anime from "animejs";
 
 export function AirBox({ count }) {
     return (
-        <Box className="custom-class"
+        <Box className="box-styled"
             sx={{
                 background: GradientColor,
                 borderRadius: 10,
@@ -56,7 +56,7 @@ const MovingImages = () => {
     }, []);
 
     return (
-        <Box className="custom-class"
+        <Box className="box-styled"
             ref={boxRef}
             sx={{
                 width: 250,
