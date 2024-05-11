@@ -1,6 +1,7 @@
 import {alpha, createTheme, getContrastRatio} from "@mui/material";
 
-const mainBase = '#dbfcff';
+
+const mainBase = '#17757c';
 const mainMain = alpha(mainBase, 0.2);
 
 export const GradientColor = `linear-gradient(45deg, ${mainBase} 0%, ${mainMain} 90%);`;
@@ -17,6 +18,7 @@ const theme = createTheme({
       },
     },
   },
+
   typography: {
     fontFamily: [
       '-apple-system',

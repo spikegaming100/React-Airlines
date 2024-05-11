@@ -2,9 +2,32 @@ import Box from "@mui/material/Box";
 import * as React from "react";
 import {GradientColor} from "../SubElements/theme";
 import  '../SubElements/BoxStyle.css'
-import Grid from "./Table";
+import {DataGrid, GridToolbarContainer, GridToolbarQuickFilter} from "@mui/x-data-grid";
+import {rows, columns} from "./Table";
 
+function TableGrid() {
+    return (
+        <DataGrid
+            rows={rows} columns={columns} pageSize={6}
+            slots={{
+                toolbar: CustomToolbar,
+            }}
+            className="custom-class"
+            sx={{
+                borderRadius: 6,
+            }}
 
+        />
+    );
+}
+
+const CustomToolbar = () => {
+    return (
+        <GridToolbarContainer>
+            <GridToolbarQuickFilter sx={{ margin: '20px' }} />
+        </GridToolbarContainer>
+    );
+};
 
 export function Content() {
     return (
@@ -14,7 +37,7 @@ export function Content() {
                 height: 1000,
                 background: GradientColor,
             }}>
-            <Grid></Grid>
+            <TableGrid></TableGrid>
         </Box>
     );
 }
