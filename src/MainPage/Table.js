@@ -1,4 +1,4 @@
-import { format } from 'date-fns';
+import {format} from 'date-fns';
 
 const currentDate = new Date().getTime();
 const millisecondsPerDay = 24 * 60 * 60 * 1000;
@@ -24,26 +24,54 @@ const Time = () => {
 
     let diff = (randomHours * millisecondsPerHour) + (randomMinutes * millisecondsPerMinute);
     const second = first + diff;
-    let str = az(randomHours)+ ":" + az(randomMinutes);
-    return { first, second, str };
+    let dur = az(randomHours)+ ":" + az(randomMinutes);
+    return { first, second, dur };
 };
 
+const i = ["🇺🇸 США", "🇨🇳 Китай", "🇮🇳 Индия", "🇮🇩 Индонезия", "🇧🇷 Бразилия", "🇵🇰 Пакистан", "🇳🇬 Нигерия", "🇧🇩 Бангладеш", "🇷🇺 Россия", "🇯🇵 Япония", "🇲🇽 Мексика", "🇵🇭 Филиппины", "🇪🇬 Египет", "🇪🇹 Эфиопия", "🇻🇳 Вьетнам", "🇨🇩 Демократическая Республика Конго", "🇹🇷 Турция", "🇩🇪 Германия", "🇮🇷 Иран", "🇹🇭 Таиланд", "🇬🇧 Великобритания", "🇫🇷 Франция", "🇮🇹 Италия", "🇹🇿 Танзания", "🇿🇦 Южная Африка", "🇲🇲 Мьянма", "🇰🇪 Кения", "🇰🇷 Южная Корея", "🇨🇴 Колумбия", "🇪🇸 Испания", "🇺🇬 Уганда", "🇦🇷 Аргентина", "🇩🇿 Алжир", "🇸🇩 Судан", "🇺🇦 Украина", "🇮🇶 Ирак", "🇵🇱 Польша", "🇨🇦 Канада", "🇸🇦 Саудовская Аравия", "🇲🇾 Малайзия", "🇵🇪 Перу", "🇦🇴 Ангола", "🇺🇿 Узбекистан", "🇲🇦 Марокко", "🇾🇪 Йемен", "🇻🇪 Венесуэла", "🇳🇵 Непал", "🇲🇬 Мадагаскар", "🇨🇲 Камерун", "🇨🇮 Кот-д'Ивуар",]
+const n = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
 
+function country() {
+    return i[Math.floor(Math.random() * i.length)] ;
+}
+
+function flightNum() {
+    let result = '';
+    for (let i = 0; i < 3; i++) {
+        result += n.charAt(Math.floor(Math.random() * n.length));
+    }
+    result += '-';
+    for (let j = 0; j < 3; j++) {
+        result += Math.floor(Math.random() * 10);
+    }
+    return result;
+}
+
+function status() {
+    let r = Math.floor(Math.random() * 10);
+    if (r === 0) {
+        return "Отменён";
+    } else if (r === 1) {
+        return "Задержан";
+    } else {
+        return "По расписанию";
+    }
+}
 
 const generateRow = () => {
-    const { first, second, str } = Time();
+    const { first, second, dur } = Time();
     return {
-        flightNumber: 'AA123',
+        flightNumber: flightNum(),
         origin: '🇷🇺 Россия',
-        destination: '🇺🇸 США',
+        destination: country(),
         depTime: format(first, 'yyyy-MM-dd HH:mm'),
         arrTime: format(second, 'yyyy-MM-dd HH:mm'),
-        duration: str,
-        status: 'On Time'
+        duration: dur,
+        status: status()
     };
 };
 
-export const rows = Array.from({ length: 30 }, (_, index) => ({
+export const rows = Array.from({ length: 100 }, (_, index) => ({
     id: index + 1,
     ...generateRow()
 }));
@@ -56,10 +84,16 @@ export const columns = [
     { field: 'depTime', headerName: 'Время отправления', flex: 1, type: 'datetime' },
     { field: 'arrTime', headerName: 'Время прибытия', flex: 1},
     { field: 'duration', headerName: 'Продолжительность', flex: 1},
-    { field: 'status', headerName: 'Статус', flex: 1 },
+    {
+        field: 'status',
+        headerName: 'Статус',
+        flex: 1,
+        renderCell: (params) => (
+            <span style={{color:
+                    params.value === "Отменён" ? 'red' : '' ||
+                    params.value === "Задержан" ? 'orange' : 'green' }}>
+      {params.value}
+    </span>
+        )
+    }
 ];
-
-
-
-
-
