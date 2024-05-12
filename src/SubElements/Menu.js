@@ -2,7 +2,9 @@ import {Button, ButtonGroup} from "@mui/material";
 import Box from "@mui/material/Box";
 import * as React from "react";
 
-    export function Menu({history}) {
+
+export function Menu({ history, scrollToContent }) {
+
     return (
         <Box
             sx={{
@@ -12,10 +14,10 @@ import * as React from "react";
                 margin: 2,
             }}
         >
-            <ButtonGroup variant="contained" color="main" >
-                <Button onClick={()=> history.push("/flights")}>Посмотреть туры</Button>
-                <Button onClick={()=> history.push("/about")}>О нас</Button>
-                <Button onClick={()=> history.push("/support")}>Поддержка</Button>
+            <ButtonGroup variant="contained" color="main">
+                <Button onClick={scrollToContent}>Посмотреть туры</Button>
+                <Button onClick={() => history.push("/about")}>О нас</Button>
+                <Button onClick={() => history.push("/support")}>Поддержка</Button>
             </ButtonGroup>
         </Box>
     );

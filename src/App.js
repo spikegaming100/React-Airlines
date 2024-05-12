@@ -9,6 +9,7 @@ import About from "./About";
 import Support from "./Support";
 import {Content} from "./MainPage/Content";
 import {Header} from "./MainPage/Header";
+import {useRef} from "react";
 
 export default function App() {
     return (
@@ -22,18 +23,21 @@ export default function App() {
   );
 }
 
-class Main extends React.Component {
-    render() {
+function Main({ history }) {
+    const contentRef = useRef(null);
+
+    const scrollToContent = () => {
+        contentRef.current?.scrollIntoView({ behavior: 'smooth' });
+    };
         return (
             <Container maxWidth={"lg"}>
                 <Header />
+                <Menu history={history} scrollToContent={scrollToContent} />
                 <AirBox count={25} />
-                <Menu history={this.props.history} />
-                <Content />
-                <Copyright history={this.props.history}/>
+                <div ref={contentRef}><Content/></div>
+                <Copyright history={history} />
             </Container>
         );
-    }
 }
 
 

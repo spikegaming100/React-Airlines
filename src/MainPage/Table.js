@@ -78,16 +78,17 @@ export const rows = Array.from({ length: 100 }, (_, index) => ({
 
 
 export const columns = [
-    { field: 'flightNumber', headerName: 'Номер рейса',flex: 1 },
-    { field: 'origin', headerName: 'Место отправления', flex: 1},
-    { field: 'destination', headerName: 'Место прибытия',flex: 1 },
-    { field: 'depTime', headerName: 'Время отправления', flex: 1, type: 'datetime' },
-    { field: 'arrTime', headerName: 'Время прибытия', flex: 1},
-    { field: 'duration', headerName: 'Продолжительность', flex: 1},
-    {
-        field: 'status',
+    { field: 'flightNumber', headerName: 'Номер рейса', align: 'center', headerAlign: 'center'},
+    { field: 'origin', headerName: 'Место отправления', flex: 1,  headerAlign: 'center' },
+    { field: 'destination', headerName: 'Место прибытия', flex: 1, headerAlign: 'center'},
+    { field: 'depTime', headerName: 'Время отправления',  flex: 1, align: 'center', headerAlign: 'center' },
+    { field: 'arrTime', headerName: 'Время прибытия', flex: 1, align: 'center', headerAlign: 'center'},
+    { field: 'duration', headerName: 'Продолжительность',  align: 'center', headerAlign: 'center'},
+    {   field: 'status',
         headerName: 'Статус',
         flex: 1,
+        align: 'center',
+        headerAlign: 'center',
         renderCell: (params) => (
             <span style={{color:
                     params.value === "Отменён" ? 'red' : '' ||

@@ -17,6 +17,10 @@ function TableGrid() {
             className="box-styled"
             sx={{
                 borderRadius: 6,
+                '.MuiDataGrid-columnHeaderTitle': {
+                    fontWeight: 'bold !important',
+                    overflow: 'visible !important'
+                }
             }}
 
         />
@@ -25,15 +29,17 @@ function TableGrid() {
 
 const CustomToolbar = () => {
     return (
-        <GridToolbarContainer>
-            <GridToolbarQuickFilter sx={{ margin: '20px' }} />
+        <GridToolbarContainer >
+            <GridToolbarQuickFilter placeholder="Найти..." sx={{ margin: '20px' }} />
         </GridToolbarContainer>
     );
 };
 
 export function Content() {
     return (
-        <Box className="box-styled" paddingTop={1} paddingBottom={4}
+        <Box className="box-styled"
+             paddingTop={1}
+             paddingBottom={4}
              sx={{
                 width: window.Width,
                 height: 1000,

@@ -18,15 +18,14 @@ const theme = createTheme({
       },
     },
   },
-
   typography: {
     fontFamily: [
       '-apple-system',
       'BlinkMacSystemFont',
       '"Segoe UI"',
-      'Roboto',
-      '"Helvetica Neue"',
       'Arial',
+      '"Helvetica Neue"',
+      'Roboto',
       'sans-serif',
       '"Apple Color Emoji"',
       '"Segoe UI Emoji"',
