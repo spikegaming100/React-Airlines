@@ -16,7 +16,7 @@ function TableGrid() {
             }}
             className="box-styled"
             sx={{
-                borderRadius: 6,
+                height: '40%',
                 '.MuiDataGrid-columnHeaderTitle': {
                     fontWeight: 'bold !important',
                     overflow: 'visible !important'
@@ -38,13 +38,19 @@ const CustomToolbar = () => {
 export function Content() {
     return (
         <Box className="box-styled"
-             paddingTop={1}
-             paddingBottom={4}
              sx={{
                 width: window.Width,
                 height: 1000,
                 background: GradientColor,
             }}>
+            <Box className="box-styled"
+                sx={{
+                    width: window.Width,
+                    height: '55%',
+                    background: GradientColor,
+                    flex: 1,
+                }}>
+            </Box>
             <TableGrid></TableGrid>
         </Box>
     );
