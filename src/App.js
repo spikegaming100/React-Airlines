@@ -34,7 +34,7 @@ function Main({ history }) {
                 <Header />
                 <Menu history={history} scrollToContent={scrollToContent} />
                 <AirBox count={25} />
-                <div ref={contentRef}><Content/></div>
+                <div ref={contentRef}><Content/> </div>
                 <Copyright history={history} />
             </Container>
         );

@@ -5,6 +5,7 @@ import {GradientColor} from "../SubElements/theme";
 import  '../SubElements/BoxStyle.css'
 import {rows, columns} from "./Table";
 
+
 function TableGrid() {
     return (
         <DataGrid
@@ -16,7 +17,7 @@ function TableGrid() {
             }}
             className="box-styled"
             sx={{
-                height: '40%',
+                height: '50%',
                 '.MuiDataGrid-columnHeaderTitle': {
                     fontWeight: 'bold !important',
                     overflow: 'visible !important'
@@ -30,7 +31,7 @@ function TableGrid() {
 const CustomToolbar = () => {
     return (
         <GridToolbarContainer >
-            <GridToolbarQuickFilter placeholder="Найти..." sx={{ margin: '20px' }} />
+            <GridToolbarQuickFilter placeholder="Найти..." sx={{ margin: '10px', }} />
         </GridToolbarContainer>
     );
 };
@@ -38,20 +39,25 @@ const CustomToolbar = () => {
 export function Content() {
     return (
         <Box className="box-styled"
-             sx={{
+            sx={{
                 width: window.Width,
                 height: 1000,
                 background: GradientColor,
-            }}>
+                padding: 1,
+                overflow: 'hidden'
+            }}
+        >
             <Box className="box-styled"
                 sx={{
                     width: window.Width,
-                    height: '55%',
+                    height: '45%',
                     background: GradientColor,
-                    flex: 1,
-                }}>
+
+                }}
+            >
             </Box>
-            <TableGrid></TableGrid>
+                <TableGrid sx={{ borderRadius: 6 }}></TableGrid>
         </Box>
     );
 }
+
