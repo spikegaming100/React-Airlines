@@ -78,7 +78,7 @@ export const rows = Array.from({ length: 100 }, (_, index) => ({
 
 
 export const columns = [
-    { field: 'flightNumber', headerName: 'Номер рейса', align: 'center', headerAlign: 'center'},
+    { field: 'flightNumber', headerName: 'Номер рейса', flex: 1, align: 'center', headerAlign: 'center'},
     { field: 'origin', headerName: 'Место отправления', flex: 1,  headerAlign: 'center' },
     { field: 'destination', headerName: 'Место прибытия', flex: 1, headerAlign: 'center'},
     { field: 'depTime', headerName: 'Время отправления',  flex: 1, align: 'center', headerAlign: 'center' },

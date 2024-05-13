@@ -1,6 +1,6 @@
 import * as React from "react";
 import styled from "styled-components";
-import theme, {GradientColor} from "../SubElements/theme";
+import theme, {GradientColor} from "../SubElements/Theme";
 import Box from "@mui/material/Box";
 import {useEffect, useRef} from "react";
 import anime from "animejs";
@@ -47,7 +47,7 @@ const MovingImages = () => {
     useEffect(() => {
         anime({
             targets: boxRef.current,
-            translateX: -window.innerWidth,
+            translateX: -2500,
             duration: 50000,
             easing: 'linear',
             loop: true,
