@@ -8,24 +8,48 @@ import HotelSearch from "./HotelSearch";
 import Typography from "@mui/material/Typography";
 
 
-function TableGrid() {
+export function Content() {
+    const [boxHeight, setBoxHeight] = React.useState(700);
+
+    const handleResize = (height) => {
+        setBoxHeight(height);
+    };
+
+    return (
+        <Box className="box-styled"
+             sx={{
+                 width: window.Width,
+                 height: boxHeight,
+                 background: GradientColor,
+                 padding: 1,
+                 flex: 1,
+             }}
+        >
+            <Typography variant="h3" align="center" padding={0.1}>Найди себе подходящий отель</Typography>
+            <HotelSearch onResize={handleResize}></HotelSearch>
+            <TableGrid />
+        </Box>
+    );
+}
+
+function TableGrid({  }) {
     return (
         <DataGrid
             rows={rows}
             columns={columns}
-            pageSize={6}
             slots={{
                 toolbar: CustomToolbar,
             }}
             className="box-styled"
+            padding={0.1}
             sx={{
-                height: '50%',
+                height: '75%',
+                maxHeight: 500,
                 '.MuiDataGrid-columnHeaderTitle': {
                     fontWeight: 'bold !important',
                     overflow: 'visible !important'
                 }
             }}
-
         />
     );
 }
@@ -38,29 +62,5 @@ const CustomToolbar = () => {
     );
 };
 
-export function Content() {
-    return (
-        <Box className="box-styled"
-            sx={{
-                width: window.Width,
-                height: 1500,
-                background: GradientColor,
-                padding: 1,
-                overflow: 'hidden'
-            }}
-        >
-            <Box className="box-styled"
-                sx={{
-                    width: window.Width,
-                    height: '45%',
-                    background: GradientColor,
-                }}
-            >
-                <Typography variant="h3" align="center" padding={0.1}>Найди себе подходящий отель</Typography>
-                <HotelSearch></HotelSearch>
-            </Box>
-                <TableGrid></TableGrid>
-        </Box>
-    );
-}
+
 

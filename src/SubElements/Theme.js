@@ -1,7 +1,7 @@
 import {alpha, createTheme, getContrastRatio} from "@mui/material";
 
 
-export const mainBase = '#60d5ff';
+export const mainBase = '#98e4ff';
 export const mainMain = alpha(mainBase, 0.2);
 
 export const GradientColor = `linear-gradient(45deg, ${mainBase} 0%, ${mainMain} 90%);`;
